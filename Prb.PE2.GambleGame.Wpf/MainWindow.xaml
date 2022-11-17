@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prb.PE2.GambleGame.Wpf"
         mc:Ignorable="d"
-        Title="Guessing Game" Height="450" Width="800">
+        Title="Guessing Game" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -20,8 +21,8 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBox x:Name="txtName" Margin="10" />
-            <Button x:Name="btnAddName" Grid.Column="1" Margin="10" Content="Voeg toe" />
+            <TextBox x:Name="txtName" Margin="10" TextChanged="TxtName_TextChanged" />
+            <Button x:Name="btnAddName" Grid.Column="1" Margin="10" Content="Voeg toe" Click="BtnAddName_Click" />
             <ListBox x:Name="lstPlayers" Grid.Row="2" Grid.ColumnSpan="2" Margin="10"/>
         </Grid>
         <Grid Grid.Column="1">
@@ -46,7 +47,8 @@
                     <Label x:Name="lblSecondPlayerName" Grid.Column="2" Margin="10" HorizontalAlignment="Center" />
                     <TextBox x:Name="txtFirstPlayerGuess" Grid.Row="1" Margin="10" />
                     <TextBox x:Name="txtSecondPlayerGuess" Grid.Row="1" Grid.Column="2" Margin="10" />
-                    <Button x:Name="btnPlay" Margin="10" Grid.Row="2" Grid.Column="1" Content="Speel!" />
+                    <Button x:Name="btnPlay" Margin="10" Grid.Row="2" Grid.Column="1" Content="Speel!" Click="BtnPlay_Click" />
+                    <Button x:Name="btnQuickPick" Grid.Column="2" Content="QuickPick" HorizontalAlignment="Left" Margin="90,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="68" Click="BtnQuickPick_Click"/>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="1" Header="Resultaten" Margin="10">
@@ -67,7 +69,7 @@
                     <Label x:Name="lblWinner" Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Center" />
                 </Grid>
             </GroupBox>
-            <Button x:Name="btnNewRound" Grid.Row="2" Content="Nieuwe ronde" Margin="10" Width="auto" />
+            <Button x:Name="btnNewRound" Grid.Row="2" Content="Nieuwe ronde" Margin="10" Width="auto" Click="BtnNewRound_Click" />
         </Grid>
     </Grid>
 </Window>
